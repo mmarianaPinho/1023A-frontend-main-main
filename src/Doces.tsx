@@ -87,8 +87,8 @@ function Doces() {
           {doces.map(doce => (
             <div key={doce.id} className="doce-container">
               <div><strong>{doce.nome}</strong> ({doce.tipo})</div>
-              <div>💰 R$ {Number(doce.preco).toFixed(2)}</div>
-              <div>📦 Quantidade em estoque: {doce.quantidade}</div>
+              <div> R$ {Number(doce.preco).toFixed(2)}</div>
+              <div> Quantidade em estoque: {doce.quantidade}</div>
               
             </div>
           ))}

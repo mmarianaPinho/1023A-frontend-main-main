@@ -11,7 +11,7 @@ function App() {
   function renderizarPagina() {
     if (paginaAtual === 'inicio') return <Inicio />;
     if (paginaAtual === 'doces') return <Doces />;
-    if (paginaAtual === 'clientes') return <Clientes />;
+    if (paginaAtual === 'clientes') return <Clientes doceSelecionado={null} aoCadastrar={() => {}} />;
     if (paginaAtual === 'pedidos') return <Pedidos />;
   }
 
