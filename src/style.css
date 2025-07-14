@@ -1,133 +1,204 @@
+/* Base da página */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff8fc;
-    color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff8fc;
+  color: #333;
 }
 
+/* Cabeçalho principal */
 header {
-    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
-    padding: 20px 0;
-    text-align: center;
-    color: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+  background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+  padding: 20px 0;
+  text-align: center;
+  color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2.5em;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 2px #d62a82;
+  margin: 0;
+  font-size: 2.5em;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px #d62a82;
 }
 
+/* Menu de navegação */
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 15px 0 0 0;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 15px 0 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+nav ul li {
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 8px 12px;
-    border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.3s;
 }
 
 nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.2);
 }
 
+/* Botões do menu como <button> */
+nav ul button {
+  background: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6rem 1.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0001;
+  transition: background 0.2s, transform 0.15s;
+}
+
+nav ul button:hover,
+nav ul button.ativo {
+  background: #d63384;
+  transform: translateY(-2px) scale(1.05);
+  color: #fff;
+}
+
+/* Seções principais */
 .container-cadastro,
 .container-listagem {
-    margin: 30px auto;
-    max-width: 600px;
-    padding: 20px;
-    background-color: #fff0f5;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 30px auto;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff0f5;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Formulários */
 form input[type="text"],
 form input[type="number"] {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 form label {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 form input[type="checkbox"] {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 form input[type="submit"] {
-    background-color: #ff69b4;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-weight: bold;
-    border-radius: 5px;
-}
-
-form input[type="submit"]:hover {
-    background-color: #ff1493;
-}
-
-.mensagem {
-    background-color: #d1ecf1;
-    color: #0c5460;
-    padding: 10px;
-    margin: 20px auto;
-    max-width: 600px;
-    border: 1px solid #bee5eb;
-    border-radius: 5px;
-    text-align: center;
-}
-
-.doce-container {
-    background-color: #ffe4e1;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-
-.logo-titulo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 10px;
-}
-
-.logo {
-    width: 60px;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
-}
-button {
-  margin-top: 8px;
-  padding: 6px 10px;
   background-color: #ff69b4;
   color: white;
   border: none;
-  border-radius: 4px;
+  padding: 10px 20px;
   cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
 }
-button:hover {
-  background-color: #d62a82;
+
+form input[type="submit"]:hover {
+  background-color: #ff1493;
+}
+
+/* Mensagens */
+.mensagem {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+  border: 1px solid #bee5eb;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.mensagem.destaque {
+  background: #fff0f6;
+  border: 2px solid #ff69b4;
+  color: #d63384;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Doces e clientes */
+.doce-container,
+.cliente-container {
+  background-color: #ffe4e1;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+
+.cliente-container button,
+.doce-container button {
+  margin-right: 8px;
+}
+
+/* Botões padrão */
+
+button,
+.btn-principal {
+  background: #ff69b4;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover,
+.btn-principal:hover {
+  background: #d63384;
+}
+
+/* Botão de exclusão */
+.btn-excluir {
+  background-color: #dc143c;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.btn-excluir:hover {
+  background-color: #a80025;
+}
+
+
+/* Cabeçalho da seção de cadastro */
+.cadastro-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  gap: 0.5rem;
+}
+
+.cadastro-header h1 {
+  font-size: 2.2rem;
+  color: #d63384;
+  margin: 0;
+  font-weight: bold;
 }

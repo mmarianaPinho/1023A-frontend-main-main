@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "./style"; // Corrigido: importando o tipo certo
-
+import style from "./style"; 
 
 interface Cliente {
   id: number;
@@ -152,15 +151,7 @@ function Clientes({ DocesSelecionado, aoCadastrar }: ClientesProps) {
   return (
     <>
       <main>
-        <div className="cadastro-header">
-          <span role="img" aria-label="cliente" style={{ fontSize: '2.5rem', marginRight: 10 }}>👤</span>
-          <h1>Cadastro de Clientes</h1>
-        </div>
-        {DocesSelecionado && (
-          <div className="mensagem destaque">
-            <p>Você está comprando: <strong>{DocesSelecionado.nome}</strong> ({DocesSelecionado.tipo}) - R$ {DocesSelecionado.preco?.toFixed(2)}</p>
-          </div>
-        )}
+        
         {mensagem && (
           <div className="mensagem destaque">
             {mensagem}
@@ -194,7 +185,7 @@ function Clientes({ DocesSelecionado, aoCadastrar }: ClientesProps) {
                   <div>Endereço: {cliente.endereco}</div>
                   <div>CPF: {cliente.cpf}</div>
                   <button onClick={() => iniciarEdicao(cliente)} className="btn-principal" style={{marginRight: 8}}>Editar</button>
-                  <button onClick={() => deletarCliente(cliente.id)} style={{background: "#ff4d4d", color: "#fff", border: "none", borderRadius: 6, padding: "6px 16px", cursor: "pointer"}}>Excluir</button>
+                  <button onClick={() => deletarCliente(cliente.id)} className="btn-excluir">Excluir</button>
                 </>
               )}
             </div>

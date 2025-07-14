@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import './style.css';
 
 interface Doce {
   id: number;
@@ -6,12 +7,13 @@ interface Doce {
   tipo: string;
   preco: number;
   quantidade: number;
-  novoEstoque?: number; 
 }
 
 function Inicio() {
   const [doces, setDoces] = useState<Doce[]>([]);
   const [mensagem, setMensagem] = useState("");
+  const [editandoId, setEditandoId] = useState<number | null>(null);
+  const [novoEstoque, setNovoEstoque] = useState("");
 
   useEffect(() => {
     buscarDoces();
@@ -68,6 +70,7 @@ function Inicio() {
 
       if (resposta.ok) {
         setMensagem("Estoque atualizado com sucesso!");
+        setEditandoId(null);
         buscarDoces();
       } else {
         const erro = await resposta.json();
@@ -79,41 +82,67 @@ function Inicio() {
   };
 
   return (
-    <div className="container-listagem">
-      <h2>Doces Cadastrados</h2>
-      {mensagem && <p>{mensagem}</p>}
-      {doces.map(doce => (
-        <div key={doce.id} className="doce-container">
-          <div><strong>{doce.nome}</strong> ({doce.tipo})</div>
-          <div> R$ {Number(doce.preco).toFixed(2)}</div>
-          <div> Estoque: {doce.quantidade}</div>
+    <main>
+      {mensagem && <div className="mensagem"><p>{mensagem}</p></div>}
 
-          <input
-            type="number"
-            min="0"
-            placeholder="Novo estoque"
-            onChange={(e) => {
-              const valor = parseInt(e.target.value);
-              setDoces(prev =>
-                prev.map(d => d.id === doce.id ? { ...d, novoEstoque: valor } : d)
-              );
-            }}
-            style={{ width: "130px", marginRight: "8px" }}
-          />
+      <div className="container-listagem">
+        <h2>Doces Cadastrados</h2>
 
-          <button
-            onClick={() => atualizarEstoque(doce.id, doce.novoEstoque || 0)}
-            style={{ marginRight: "8px" }}
-          >
-            Atualizar Estoque
-          </button>
+        {doces.map(doce => (
+          <div key={doce.id} className="doce-container">
+            <div><strong>{doce.nome}</strong> ({doce.tipo})</div>
+            <div>Preço: R$ {Number(doce.preco).toFixed(2)}</div>
+            <div>Estoque: {doce.quantidade}</div>
 
-          <button onClick={() => excluirDoce(doce.id)}>🗑️ Excluir</button>
-        </div>
-      ))}
-    </div>
+            {editandoId === doce.id ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  atualizarEstoque(doce.id, parseInt(novoEstoque));
+                }}
+                className="form-edicao"
+              >
+                <input
+                  type="number"
+                  min="0"
+                  value={novoEstoque}
+                  onChange={e => setNovoEstoque(e.target.value)}
+                  required
+                />
+                <button type="submit" className="btn-principal" style={{ marginRight: 8 }}>
+                  Salvar
+                </button>
+                <button type="button" onClick={() => setEditandoId(null)}>
+                  Cancelar
+                </button>
+              </form>
+            ) : (
+              <>
+                <button
+                  onClick={() => {
+                    setEditandoId(doce.id);
+                    setNovoEstoque(doce.quantidade.toString());
+                  }}
+                  className="btn-principal"
+                  style={{ marginRight: 8 }}
+                >
+                  Editar Estoque
+                </button>
+
+                <button
+                  onClick={() => excluirDoce(doce.id)}
+                  className="btn-excluir"
+                >
+                   Excluir
+                </button>
+
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+    </main>
   );
 }
-
 
 export default Inicio;

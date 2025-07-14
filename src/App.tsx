@@ -18,10 +18,7 @@ function App() {
   return (
     <>
       <header>
-        <div className="logo-titulo">
-          <img src="/logo.png" alt="Logo" className="logo" />
-          <h1>Doces Delícia</h1>
-        </div>
+        
         <nav>
           <ul>
             <li><button onClick={() => setPaginaAtual('inicio')}>Início</button></li>
