@@ -155,7 +155,7 @@ form input[type="submit"]:hover {
 }
 
 /* Botões padrão */
-
+/* Botões padrão */
 button,
 .btn-principal {
   background: #ff69b4;
@@ -186,6 +186,22 @@ button:hover,
   background-color: #a80025;
 }
 
+
+/* Título com logo */
+.logo-titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+}
 
 /* Cabeçalho da seção de cadastro */
 .cadastro-header {

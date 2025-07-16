@@ -18,7 +18,10 @@ function App() {
   return (
     <>
       <header>
-        
+        <div className="logo-titulo">
+          
+          <h1>Doces Delícia</h1>
+        </div>
         <nav>
           <ul>
             <li><button onClick={() => setPaginaAtual('inicio')}>Início</button></li>
